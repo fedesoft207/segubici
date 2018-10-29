@@ -35,6 +35,17 @@ class Localizacion(models.Model):
     numerocomplemento = models.CharField(max_length=3)
     cuidad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
     email = models.CharField(max_length=30)
+    
+class Propietario (models.Model):
+    numeroidentificacion = models.IntegerField()
+    tipoidentificacion = models.ForeignKey(Tipoidentificacion, on_delete=models.CASCADE)
+    nombrepropietario = models.CharField(max_length=30)
+    apellidopropietario = models.CharField(max_length=30)
+    localizacion = models.ForeignKey(Localizacion, on_delete=models.CASCADE)
 
-
+class Geolocalizacion (models.Model):
+    latitudgeolocalizacion = models.IntegerField()
+    longitudgeolocalizacion = models.IntegerField()
+    propietario = models.ForeignKey(Propietario, on_delete=models.CASCADE)
+    
 # Create your models here.
