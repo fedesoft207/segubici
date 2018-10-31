@@ -59,8 +59,8 @@
       <ion-label floating>Imagen bicicleta</ion-label>
       <ion-input type="text" [(ngModel)]="imagenbicicleta"></ion-input>
     </ion-item>
-    
-      <!-- pendiente por subir cuando relaciones con la base de datos
+
+    <!-- pendiente por subir cuando relaciones con la base de datos
         
         <ion-item><ion-label floating>Tipo de Identificacion</ion-label>
       <ion-select [(ngModel)]="tipodeidentificacion">
@@ -68,6 +68,13 @@
 
       </ion-select>
     </ion-item>-->
+
+    <ion-item>
+      <button ion-button block large outline (click)="tomarFoto()">Tomar Foto</button>
+    </ion-item>
+    <ion-item>
+      <p><img width="80%" src="{{ imagen }}" /></p>
+    </ion-item>
 
   </ion-list>
 
