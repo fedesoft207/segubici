@@ -15,7 +15,7 @@ import { Camera } from '@ionic-native/camera';
   declarations: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
     RegistrarsePage
    
   ],
@@ -28,7 +28,7 @@ import { Camera } from '@ionic-native/camera';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage
+    LoginPage,
     RegistrarsePage
     
   ],
@@ -37,7 +37,7 @@ import { Camera } from '@ionic-native/camera';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpClient,
-    RestProvider
+    RestProvider,
     Camera
   ]
 })
