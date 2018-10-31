@@ -1,35 +1,38 @@
 from django.db import models
-
-
-class Imagen (models.Model):
-    # urlimagen = models.CharField(max_length=50)
-    urlimagen = models.ImageField(upload_to='img/fotosapp/', blank=True, null=True)
+from django.contrib.auth.models import User
 
 
 class Bicicleta(models.Model):
     numerobicicleta = models.CharField(max_length=10)
-    idimagen = models.ForeignKey(Imagen, on_delete=models.CASCADE)
+    color = models.CharField(max_length=30)
+    rin = models.CharField(max_length=30)
+
+
+class Imagen (models.Model):
+    urlimagen = models.ImageField(
+        upload_to='img/fotosapp/', blank=True, null=True)
+    bicicleta = models.ForeignKey(Bicicleta, on_delete=models.CASCADE)
 
 
 class Tipoidentificacion(models.Model):
-    descripciontipoidentificacion = models.CharField(max_length=50)
+    descripciontipoidentificacion = models.TextField()
     siglatipoidentificacion = models.CharField(max_length=3)
 
 
 class Tipocalle(models.Model):
-    descripciontipocalle = models.CharField(max_length=30)
+    descripciontipocalle = models.TextField()
 
 
 class Cardinalidad(models.Model):
-    descripcioncardinalidad = models.CharField(max_length=30)
+    descripcioncardinalidad = models.TextField()
 
 
 class Departamento(models.Model):
-    descrpciondepartamento = models.CharField(max_length=30)
+    descrpciondepartamento = models.TextField()
 
 
 class Ciudad(models.Model):
-    descripcionciudad = models.CharField(max_length=30)
+    descripcionciudad = models.TextField()
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
 
 
@@ -53,6 +56,7 @@ class Propietario (models.Model):
     nombrepropietario = models.CharField(max_length=30)
     apellidopropietario = models.CharField(max_length=30)
     localizacion = models.ForeignKey(Localizacion, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class Geolocalizacion (models.Model):
