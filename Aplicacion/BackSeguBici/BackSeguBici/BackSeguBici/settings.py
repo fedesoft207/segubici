@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
     'movil',
 ]
 
@@ -125,3 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = 'C:\\Users\\asjimenez\\OneDrive - Asesoftware S.A.S\\BkASW\\Documentos\\Desarrollo Full\\SEGUBICI\\segubici\\Aplicacion\\BackSeguBici\\BackSeguBici\\media' 
+MEDIA_URL = '/media/'

@@ -8,12 +8,16 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RestProvider } from '../providers/rest/rest';
+import { RegistrarsePage } from '../pages/registrarse/registrarse';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage
+    RegistrarsePage
+   
   ],
   imports: [
     BrowserModule,
@@ -25,6 +29,8 @@ import { RestProvider } from '../providers/rest/rest';
     MyApp,
     HomePage,
     LoginPage
+    RegistrarsePage
+    
   ],
   providers: [
     StatusBar,
@@ -32,6 +38,7 @@ import { RestProvider } from '../providers/rest/rest';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpClient,
     RestProvider
+    Camera
   ]
 })
 export class AppModule {}

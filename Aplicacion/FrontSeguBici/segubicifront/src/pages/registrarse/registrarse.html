@@ -1,0 +1,76 @@
+<!--
+  Generated template for the RegistrarsePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>registrarse</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+
+    <ion-item>
+      <ion-label floating>Nombre del Propietario</ion-label>
+      <ion-input type="text" [(ngModel)]="nombredelpropietario"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Apellido del propietario</ion-label>
+      <ion-input type="text" [(ngModel)]="apellidodelpropietario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Serial Bicicleta</ion-label>
+      <ion-input type="text" [(ngModel)]="serialbicicleta"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Tipo de identificacion</ion-label>
+      <ion-input type="text" [(ngModel)]="tipodeidentificacion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Numero de identificacion</ion-label>
+      <ion-input type="text" [(ngModel)]="numerodeidentificacion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Tipo de calle</ion-label>
+      <ion-input type="text" [(ngModel)]="tipodecalle"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Cardinalidad</ion-label>
+      <ion-input type="text" [(ngModel)]="Cardinalidad"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Ciudad</ion-label>
+      <ion-input type="text" [(ngModel)]="ciudad"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Departamento</ion-label>
+      <ion-input type="text" [(ngModel)]="departamento"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Imagen bicicleta</ion-label>
+      <ion-input type="text" [(ngModel)]="imagenbicicleta"></ion-input>
+    </ion-item>
+    
+      <!-- pendiente por subir cuando relaciones con la base de datos
+        
+        <ion-item><ion-label floating>Tipo de Identificacion</ion-label>
+      <ion-select [(ngModel)]="tipodeidentificacion">
+      <ion-option *ngFor="let c of cursos" value="{{ c.id }}">{{ c.numero_curso }}</ion-option>
+
+      </ion-select>
+    </ion-item>-->
+
+  </ion-list>
+
+  <button ion-button full (click)="registrarusuario()">Registrarme</button>
+
+</ion-content>
