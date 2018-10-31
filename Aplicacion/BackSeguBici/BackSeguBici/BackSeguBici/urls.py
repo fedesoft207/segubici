@@ -27,8 +27,9 @@ urlpatterns = staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 urlpatterns += [
-    path('admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     path('principal/', views.principal),
     url(r'^', include(('movil.urls','movil'))),
     url('api/', include('rest_auth.urls')),
+    url('rest-auth/', include('rest_auth.urls')),
 ]
