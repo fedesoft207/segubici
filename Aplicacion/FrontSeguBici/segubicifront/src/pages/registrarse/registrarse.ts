@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { RestProvider } from '../../providers/rest/rest';
+
 
 /**
  * Generated class for the RegistrarsePage page.
