@@ -41,9 +41,11 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'movil',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -84,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'segubici',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'RASP0410008',
         'HOST': 'localhost',
         'PORT': '3306',
         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
@@ -141,3 +143,14 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+
+CORS_ORIGIN_WHITELIST = (
+ 'localhost:8000',
+)
+CORS_ALLOW_METHODS = (
+ 'DELETE',
+ 'GET',
+ 'PATCH',
+ 'POST',
+ 'PUT',
+)

@@ -9,7 +9,10 @@ urlpatterns = [
     url(r'^imagen/(?P<pk>[0-9]+)/$', views.ImagenId.as_view()),
 
     url(r'^propietario/$', views.PropietarioList.as_view()),
+    url(r'^propietario/(?P<pk>[0-9]+)/$', views.PropietarioDetail.as_view()),
 
-    url(r'^usuarios/$', views.ImagenList.as_view()), 
-    url(r'^usuarios/(?P<pk>[0-9]+)/$', views.ImagenId.as_view()),
+     url(r'^Tipoidentificacion/$', views.TipoidentificacionList.as_view()),
+    url(r'^Tipoidentificacion/(?P<pk>[0-9]+)/$', views.TipoidentificacionDetail.as_view()),
+
+    
 ]

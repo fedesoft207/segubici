@@ -51,8 +51,7 @@ class Localizacion(models.Model):
 
 class Propietario (models.Model):
     numeroidentificacion = models.IntegerField()
-    tipoidentificacion = models.ForeignKey(
-        Tipoidentificacion, on_delete=models.CASCADE)
+    tipoidentificacion = models.ForeignKey(Tipoidentificacion, on_delete=models.CASCADE)
     nombrepropietario = models.CharField(max_length=30)
     apellidopropietario = models.CharField(max_length=30)
     localizacion = models.ForeignKey(Localizacion, on_delete=models.CASCADE)

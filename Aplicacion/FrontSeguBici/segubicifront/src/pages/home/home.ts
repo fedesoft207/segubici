@@ -16,7 +16,7 @@ export class HomePage {
   registrarse() {
 
    //this.navCtrl.push(LoginPage) es un metodo para configurar el boton
-    this.navCtrl.setRoot(RegistrarsePage)
+    this.navCtrl.push(RegistrarsePage)
 
   }
 

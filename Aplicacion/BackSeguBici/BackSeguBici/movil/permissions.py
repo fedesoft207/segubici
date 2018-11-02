@@ -8,4 +8,4 @@ class IsPostOrIsAuthenticated(permissions.BasePermission):
             return True
             # Otherwise, only allow authenticated requests
             # Post Django 1.10, 'is_authenticated' is a read-only attribute
-            return request.user and request.user.is_authenticated
+        return request.user and request.user.is_authenticated
