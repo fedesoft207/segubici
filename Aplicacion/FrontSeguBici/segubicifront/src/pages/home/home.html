@@ -12,17 +12,18 @@
 
     <ion-item>
       <ion-label floating>Digite Usuario</ion-label>
-      <ion-input type="text" [(ngModel)]="Usuario"></ion-input>
+      <ion-input type="text" [(ngModel)]="usuario"></ion-input>
     </ion-item>
   
     <ion-item>
       <ion-label floating>digite contraseña</ion-label>
-      <ion-input type="password" [(ngModel)]="Contrasena"></ion-input>
+      <ion-input type="password" [(ngModel)]="clave"></ion-input>
     </ion-item>
   
   </ion-list>
   <button ion-button full (click)="iniciarSesion()">Iniciar Sesion</button>
   <button ion-button full (click)="registrarse()">Registrarse</button>
-
+  <button ion-button color="dark" block
+  (click)="mostrarUbicacion()">Ubicación</button>
 
 </ion-content>

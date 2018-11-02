@@ -6,18 +6,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { LoginPage } from '../pages/login/login';
 import { RestProvider } from '../providers/rest/rest';
 import { RegistrarsePage } from '../pages/registrarse/registrarse';
 import { Camera } from '@ionic-native/camera';
+import { Geolocation } from '@ionic-native/geolocation';
+import { UbicacionPage } from '../pages/ubicacion/ubicacion';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    LoginPage,
-    RegistrarsePage
-   
+    RegistrarsePage,
+    UbicacionPage,
+       
   ],
   imports: [
     BrowserModule,
@@ -28,8 +30,8 @@ import { Camera } from '@ionic-native/camera';
   entryComponents: [
     MyApp,
     HomePage,
-    LoginPage,
-    RegistrarsePage
+    RegistrarsePage,
+    UbicacionPage,
     
   ],
   providers: [
@@ -38,6 +40,7 @@ import { Camera } from '@ionic-native/camera';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpClient,
     RestProvider,
+    Geolocation,
     Camera
   ]
 })
