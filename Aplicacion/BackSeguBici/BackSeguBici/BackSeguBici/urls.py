@@ -31,5 +31,4 @@ urlpatterns += [
     path('principal/', views.principal),
     url(r'^', include(('movil.urls','movil'))),
     url('api/', include('rest_auth.urls')),
-    url('rest-auth/', include('rest_auth.urls')),
 ]
