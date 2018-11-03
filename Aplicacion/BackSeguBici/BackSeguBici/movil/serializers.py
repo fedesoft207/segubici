@@ -9,12 +9,12 @@ class PropietarioSerializer(serializers.ModelSerializer):
     numeroidentificacion = serializers.IntegerField()
     nombrepropietario = serializers.CharField(max_length=30)
     apellidopropietario = serializers.CharField(max_length=30)
+    tipoidentificacion = serializers.PrimaryKeyRelatedField(queryset=Tipoidentificacion.objects.all())
 
 
     class Meta:
         model = User
-        fields = ('id', 'username', 'password', 'numeroidentificacion',
-                'nombrepropietario', 'apellidopropietario')
+        fields = ('id', 'username', 'password', 'numeroidentificacion', 'nombrepropietario', 'apellidopropietario','tipoidentificacion')
     
     def create(self, validated_data, instance=None):
         user_data = validated_data.pop('user')
@@ -34,6 +34,6 @@ class ImagenSerializer(serializers.ModelSerializer):
 
 
 class TipoidentificacionSerializer(serializers.ModelSerializer):
-        class Meta:
-            model = Tipoidentificacion
-            fields = ('descripciontipoidentificacion', 'siglatipoidentificacion')
+    class Meta:
+        model = Tipoidentificacion
+        fields = ('descripciontipoidentificacion', 'siglatipoidentificacion','id')

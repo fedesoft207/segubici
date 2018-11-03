@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { RestProvider } from '../../providers/rest/rest';
+import { UbicacionPage } from '../ubicacion/ubicacion';
+import { LoadingController } from 'ionic-angular';
 
 
 
@@ -25,7 +27,8 @@ export class RegistrarsePage {
   apellidodelpropietario: String;
   numerodeidentificacion: String;
   clave: String;
- 
+  tipodeidentificaciones: any;
+
   options: CameraOptions = {
     quality: 70,
     targetWidth: 500,
@@ -35,9 +38,9 @@ export class RegistrarsePage {
     mediaType: this.camera.MediaType.PICTURE
   }
 
-  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public restProvider: RestProvider) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public restProvider: RestProvider, public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -46,8 +49,8 @@ export class RegistrarsePage {
 
   tipoDeIdentificacion() {
     this.restProvider.getidentificacion()
-      .then(data => { 
-        this.tipodeidentificacion = data;
+      .then(data => {
+        this.tipodeidentificaciones = data;
       });
   }
 
@@ -62,20 +65,42 @@ export class RegistrarsePage {
   }
 
   iniciarRegistro() {
+    this.presentLoading();
     var data = {
-    'nombrepropietario': this.nombredelpropietario,
-    'apellidopropietario': this.apellidodelpropietario,
-    'username': this.username,
-    'numeroidentificacion': this.numerodeidentificacion,
-    'password': this.clave
+      'nombrepropietario': this.nombredelpropietario,
+      'apellidopropietario': this.apellidodelpropietario,
+      'username': this.username,
+      'numeroidentificacion': this.numerodeidentificacion,
+      'tipoidentificacion': this.tipodeidentificacion,
+      'password': this.clave
     };
-    this.restProvider.registro(data).then((result:any) => {
-    this.navCtrl.setRoot(RegistrarsePage);
+    this.restProvider.registro(data).then((result: any) => {
+
+      var data = { 'username': this.username, 'password': this.clave };
+      this.restProvider.login(data)
+        .then((data: any) => {
+          window.localStorage['token'] = data.key; // para guardar el token en el local storage -consola-aplicacion
+          this.navCtrl.push(UbicacionPage);
+        }, (err) => {
+          console.log(err);
+        });
+
     }, (err) => {
-    console.log(err);
+      console.log(err);
     });
-    }
-   }
+  }
+  presentLoading() {
+    const loader = this.loadingCtrl.create({
+      content: "Please wait...",
+      duration: 3000
+    });
+    loader.present();
+  }
+}
+
+
+
+
 
   //enviarFoto() {
     //this.restProvider.enviarFoto(data).then((result: any) => {

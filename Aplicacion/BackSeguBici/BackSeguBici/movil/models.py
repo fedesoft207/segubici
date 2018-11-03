@@ -17,6 +17,8 @@ class Imagen (models.Model):
 class Tipoidentificacion(models.Model):
     descripciontipoidentificacion = models.TextField()
     siglatipoidentificacion = models.CharField(max_length=3)
+    def __str__(self):
+        return self.siglatipoidentificacion
 
 
 class Tipocalle(models.Model):
@@ -38,8 +40,7 @@ class Ciudad(models.Model):
 
 class Propietario (models.Model):
     numeroidentificacion = models.IntegerField()
-    tipoidentificacion = models.ForeignKey(
-        Tipoidentificacion, on_delete=models.CASCADE)
+    tipoidentificacion = models.ForeignKey(Tipoidentificacion, on_delete=models.CASCADE)
     nombrepropietario = models.CharField(max_length=30)
     apellidopropietario = models.CharField(max_length=30)
     user = models.OneToOneField(User, on_delete=models.CASCADE)
