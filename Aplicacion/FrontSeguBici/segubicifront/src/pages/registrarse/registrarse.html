@@ -30,7 +30,13 @@
       <ion-label floating>Apellido del propietario</ion-label>
       <ion-input type="text" [(ngModel)]="apellidodelpropietario"></ion-input>
     </ion-item>
-    <ion-item>
+      <ion-item>
+        <ion-label floating>Tipo de Identificacion</ion-label>
+        <ion-select [(ngModel)]="tipodeidentificacion">
+          <ion-option *ngFor="let t of tipodeidentificaciones" value="{{ t.id }}">{{ t.descripciontipoidentificacion }}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
       <ion-label floating>Numero de identificacion</ion-label>
       <ion-input type="text" [(ngModel)]="numerodeidentificacion"></ion-input>
     </ion-item>
@@ -38,14 +44,6 @@
       <ion-label floating>Escriba una Clave</ion-label>
       <ion-input type="password" [(ngModel)]="clave"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label floating>Tipo de Identificacion</ion-label>
-      <ion-select [(ngModel)]="tipodeidentificacion">
-        <ion-option *ngFor="let t of tipodeidentificacion" value="{{ t.id }}">{{ t.descripciontipoidentificacion }}</ion-option>
-
-      </ion-select>
-    </ion-item>
-
     <ion-item>
       <button ion-button block large outline (click)="iniciarRegistro()">Registrarse</button>
     </ion-item>

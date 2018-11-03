@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the UbicacionPage page.
@@ -32,5 +33,12 @@ export class UbicacionPage {
     console.log('Error getting location', error);
     });
     }
+
+  cerrarSesion(){
+      //podemos crear un servicio en rest.ts para eliminar el toke del servidor
+      //api/logout
+    this.navCtrl.setRoot(HomePage)
+    localStorage.clear()
+  }
 
 }

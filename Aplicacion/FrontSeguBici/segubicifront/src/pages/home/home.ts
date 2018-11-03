@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 import { RegistrarsePage } from '../registrarse/registrarse';
 import { RestProvider } from '../../providers/rest/rest';
 import { UbicacionPage } from '../ubicacion/ubicacion';
-
+import { LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -14,16 +14,12 @@ export class HomePage {
   usuario: String;
   clave: String;
 
-  constructor(public navCtrl: NavController, public restProvider: RestProvider) {
+  constructor(public navCtrl: NavController, public restProvider: RestProvider, public loadingCtrl: LoadingController) {
   }
 
   registrarse() {
 
-<<<<<<< HEAD
-   //this.navCtrl.push(LoginPage) es un metodo para configurar el boton
-=======
     //this.navCtrl.push(LoginPage) es un metodo para configurar el boton
->>>>>>> c083b372e0688675c93c5d9b85a5647e0b218dec
     this.navCtrl.push(RegistrarsePage)
 
   }
@@ -35,6 +31,7 @@ export class HomePage {
   }
 
   iniciarSesion() {
+    this.presentLoading();
     var data = { 'username': this.usuario, 'password': this.clave };
     this.restProvider.login(data)
       .then((data:any) => {
@@ -47,5 +44,13 @@ export class HomePage {
   
   mostrarUbicacion() {
     this.navCtrl.push(UbicacionPage);
+    }
+
+  presentLoading() {
+      const loader = this.loadingCtrl.create({
+        content: "Please wait...",
+        duration: 3000
+      });
+      loader.present();
     }
 }
