@@ -36,6 +36,15 @@ class Ciudad(models.Model):
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
 
 
+class Propietario (models.Model):
+    numeroidentificacion = models.IntegerField()
+    tipoidentificacion = models.ForeignKey(
+        Tipoidentificacion, on_delete=models.CASCADE)
+    nombrepropietario = models.CharField(max_length=30)
+    apellidopropietario = models.CharField(max_length=30)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+
 class Localizacion(models.Model):
     tipocalle = models.ForeignKey(Tipocalle, on_delete=models.CASCADE)
     letrauno = models.CharField(max_length=1)
@@ -47,15 +56,7 @@ class Localizacion(models.Model):
     numerocomplemento = models.CharField(max_length=3)
     ciudad = models.ForeignKey(Ciudad, on_delete=models.CASCADE)
     email = models.CharField(max_length=30)
-
-
-class Propietario (models.Model):
-    numeroidentificacion = models.IntegerField()
-    tipoidentificacion = models.ForeignKey(Tipoidentificacion, on_delete=models.CASCADE)
-    nombrepropietario = models.CharField(max_length=30)
-    apellidopropietario = models.CharField(max_length=30)
-    localizacion = models.ForeignKey(Localizacion, on_delete=models.CASCADE)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    propietario = models.ForeignKey(Propietario, on_delete=models.CASCADE)
 
 
 class Geolocalizacion (models.Model):
