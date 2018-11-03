@@ -33,3 +33,7 @@ class ImagenSerializer(serializers.ModelSerializer):
         fields = ('urlimagen', 'id')
 
 
+class TipoidentificacionSerializer(serializers.ModelSerializer):
+        class Meta:
+            model = Tipoidentificacion
+            fields = ('descripciontipoidentificacion', 'siglatipoidentificacion')

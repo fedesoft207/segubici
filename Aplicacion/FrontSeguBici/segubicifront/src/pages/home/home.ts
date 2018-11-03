@@ -19,7 +19,11 @@ export class HomePage {
 
   registrarse() {
 
+<<<<<<< HEAD
+   //this.navCtrl.push(LoginPage) es un metodo para configurar el boton
+=======
     //this.navCtrl.push(LoginPage) es un metodo para configurar el boton
+>>>>>>> c083b372e0688675c93c5d9b85a5647e0b218dec
     this.navCtrl.push(RegistrarsePage)
 
   }

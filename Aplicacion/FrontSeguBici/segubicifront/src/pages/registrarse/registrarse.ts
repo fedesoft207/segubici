@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { RestProvider } from '../../providers/rest/rest';
+
+
 
 /**
  * Generated class for the RegistrarsePage page.
@@ -15,7 +18,14 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
   templateUrl: 'registrarse.html',
 })
 export class RegistrarsePage {
-
+  imagen: any;
+  tipodeidentificacion: any;
+  username: String;
+  nombredelpropietario: String;
+  apellidodelpropietario: String;
+  numerodeidentificacion: String;
+  clave: String;
+ 
   options: CameraOptions = {
     quality: 70,
     targetWidth: 500,
@@ -25,13 +35,20 @@ export class RegistrarsePage {
     mediaType: this.camera.MediaType.PICTURE
   }
 
-  imagen: any;
+  
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private camera: Camera, public restProvider: RestProvider) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegistrarsePage');
+    this.tipoDeIdentificacion();
+  }
+
+  tipoDeIdentificacion() {
+    this.restProvider.getidentificacion()
+      .then(data => { 
+        this.tipodeidentificacion = data;
+      });
   }
 
   tomarFoto() {
@@ -44,4 +61,28 @@ export class RegistrarsePage {
     });
   }
 
-}
+  iniciarRegistro() {
+    var data = {
+    'nombrepropietario': this.nombredelpropietario,
+    'apellidopropietario': this.apellidodelpropietario,
+    'username': this.username,
+    'numeroidentificacion': this.numerodeidentificacion,
+    'password': this.clave
+    };
+    this.restProvider.registro(data).then((result:any) => {
+    this.navCtrl.setRoot(RegistrarsePage);
+    }, (err) => {
+    console.log(err);
+    });
+    }
+   }
+
+  //enviarFoto() {
+    //this.restProvider.enviarFoto(data).then((result: any) => {
+      //console.log("Foto subida exitosamente!")
+    //}, (err) => {
+      //console.log(err);
+    //});
+  //}
+
+
