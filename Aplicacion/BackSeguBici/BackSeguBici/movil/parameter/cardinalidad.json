@@ -1,0 +1,30 @@
+[
+    {
+        "model":"movil.Cardinalidad",
+        "pk":1,
+        "fields":{
+            "descripcioncardinalidad":"Este"
+        }
+    },
+    {
+        "model":"movil.Cardinalidad",
+        "pk":2,
+        "fields":{
+            "descripcioncardinalidad":"Norte"
+        }
+    },
+    {
+        "model":"movil.Cardinalidad",
+        "pk":3,
+        "fields":{
+            "descripcioncardinalidad":"Oeste"
+        }
+    },
+    {
+        "model":"movil.Cardinalidad",
+        "pk":4,
+        "fields":{
+            "descripcioncardinalidad":"Sur"
+        }
+    }
+]

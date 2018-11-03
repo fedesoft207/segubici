@@ -1,0 +1,50 @@
+[
+    {
+        "model": "movil.Tipoidentificacion",
+        "pk": 1,
+        "fields":{
+            "descripciontipoidentificacion":"Cédula de Ciudadanía",
+            "siglatipoidentificacion": "C.C"
+        }
+    },
+    {
+        "model": "movil.Tipoidentificacion",
+        "pk": 2,
+        "fields":{
+            "descripciontipoidentificacion":"Cédula de Extranjería",
+            "siglatipoidentificacion": "C.E"
+        }
+    },
+    {
+        "model": "movil.Tipoidentificacion",
+        "pk": 3,
+        "fields":{
+            "descripciontipoidentificacion":"NIT personas jurídicas",
+            "siglatipoidentificacion": "NPJ"
+        }
+    },
+    {
+        "model": "movil.Tipoidentificacion",
+        "pk": 4,
+        "fields":{
+            "descripciontipoidentificacion":"NIT personas natural",
+            "siglatipoidentificacion": "NPN"
+        }
+    },
+    {
+        "model": "movil.Tipoidentificacion",
+        "pk": 5,
+        "fields":{
+            "descripciontipoidentificacion":"Registro civil de nacimiento",
+            "siglatipoidentificacion": "RCN"
+        }
+    },
+    {
+        "model": "movil.Tipoidentificacion",
+        "pk": 6,
+        "fields":{
+            "descripciontipoidentificacion":"Tarjeta de identidad",
+            "siglatipoidentificacion": "T.I"
+        }
+    }
+]
