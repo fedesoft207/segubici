@@ -25,7 +25,7 @@ SECRET_KEY = 'jy73nb9=^zzxc(kq$wzyamgwl#+*yoic@=ynoh+#*7(z6k$mkt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*',]
 
 
 # Application definition
@@ -86,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'segubici',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
@@ -145,7 +145,11 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = (
- 'localhost:8000',
+'localhost:8080',
+'localhost:8000',
+'localhost:8100',
+'localhost:8200',
+
 )
 CORS_ALLOW_METHODS = (
  'DELETE',
