@@ -11,8 +11,12 @@ import { RegistrarsePage } from '../pages/registrarse/registrarse';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { UbicacionPage } from '../pages/ubicacion/ubicacion';
+<<<<<<< HEAD
 import { PerfilPage } from '../pages/perfil/perfil';
 import { RegistrarbiciPage } from '../pages/registrarbici/registrarbici';
+=======
+import { DireccionPage } from '../pages/direccion/direccion';
+>>>>>>> dece9ae1651b5cf69de9141ccc0bd4b8506c5559
 
 
 @NgModule({
@@ -21,8 +25,12 @@ import { RegistrarbiciPage } from '../pages/registrarbici/registrarbici';
     HomePage,
     RegistrarsePage,
     UbicacionPage,
+<<<<<<< HEAD
     PerfilPage,
     RegistrarbiciPage,
+=======
+    DireccionPage
+>>>>>>> dece9ae1651b5cf69de9141ccc0bd4b8506c5559
        
   ],
   imports: [
