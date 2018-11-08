@@ -6,6 +6,7 @@ class Bicicleta(models.Model):
     numerobicicleta = models.CharField(max_length=10)
     color = models.CharField(max_length=30)
     rin = models.CharField(max_length=30)
+    propietario = models.ForeignKey(Propietario, on_delete=models.CASCADE)
 
 
 class Imagen (models.Model):

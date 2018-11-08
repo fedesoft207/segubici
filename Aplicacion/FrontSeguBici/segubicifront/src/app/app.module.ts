@@ -11,6 +11,7 @@ import { RegistrarsePage } from '../pages/registrarse/registrarse';
 import { Camera } from '@ionic-native/camera';
 import { Geolocation } from '@ionic-native/geolocation';
 import { UbicacionPage } from '../pages/ubicacion/ubicacion';
+import { DireccionPage } from '../pages/direccion/direccion';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { UbicacionPage } from '../pages/ubicacion/ubicacion';
     HomePage,
     RegistrarsePage,
     UbicacionPage,
+    DireccionPage
        
   ],
   imports: [
