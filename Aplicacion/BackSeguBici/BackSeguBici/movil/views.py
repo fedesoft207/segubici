@@ -75,4 +75,44 @@ class CardinalidadDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Cardinalidad.objects.all()
 
 
+class DepartamentoList(generics.ListAPIView):
+    serializer_class = Departamento
+    queryset = Departamento.objects.all()
+
+
+class DepartamentoDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = Departamento
+    queryset = Departamento.objects.all()
+
+
+class CiudadList(generics.ListAPIView):
+    serializer_class = Ciudad
+    queryset = Ciudad.objects.all()
+
+
+class CiudadDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = Ciudad
+    queryset = Ciudad.objects.all()
+
+
+class LocalizacionList(generics.ListAPIView):
+    serializer_class = Localizacion
+    queryset = Localizacion.objects.all()
+
+
+class LocalizacionDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = Localizacion
+    queryset = Localizacion.objects.all()
+
+
+class GeolocalizacionList(generics.ListAPIView):
+    serializer_class = Geolocalizacion
+    queryset = Geolocalizacion.objects.all()
+
+
+class GeolocalizacionDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = Geolocalizacion
+    queryset = Geolocalizacion.objects.all()
+
+
 # Create your views here.
