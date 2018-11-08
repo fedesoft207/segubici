@@ -10,10 +10,15 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
 
+<<<<<<< HEAD
   apiUrl = 'http://5440c0f3.ngrok.io/';
+=======
+  apiUrl = ' http://localhost:8000/';
+>>>>>>> 1d43ded9d08fea964cac26777806e7a39bdd2925
   loginService = "api/login/";
   apiregister = "propietario/" 
   apiidentificacion = "Tipoidentificacion/" 
+  apiUsuarioActual = 'api/user/';
 
 
   
@@ -53,6 +58,31 @@ export class RestProvider {
         });
       });
     }
+
+    getUsuarioActual() {
+      return new Promise(resolve => {
+      this.http.get(this.apiUrl + this.apiUsuarioActual, {headers: new HttpHeaders().set('Authorization', 'token ' + window.localStorage['token'])
+      }).subscribe((data: any) => {
+      let usuario = this.getUsuario(data.pk);
+      resolve(usuario);
+      }, err => {
+      console.log(err);
+      });
+      });
+      }
+      getUsuario(id) {
+      return new Promise(resolve => {
+      this.http.get(this.apiUrl + this.apiregister +'?user_id='+id, {
+      headers: new HttpHeaders().set('Authorization', 'token ' +
+     window.localStorage['token'])
+      }).subscribe(data => {
+      resolve(data[0]);
+      }, err => {
+      console.log(err);
+      });
+      });
+      }
+     
    
 
 

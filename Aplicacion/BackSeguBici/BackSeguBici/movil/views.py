@@ -7,6 +7,8 @@ from rest_framework.permissions import AllowAny
 from movil.models import Imagen
 from rest_framework import generics
 from movil.serializers import *
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 
 def principal(request):
@@ -27,6 +29,8 @@ class ImagenId(generics.RetrieveUpdateDestroyAPIView):
 class PropietarioList(generics.ListCreateAPIView):
     serializer_class = PropietarioSerializer
     queryset = Propietario.objects.all()
+    filter_backends = (DjangoFilterBackend,)
+    filter_fields = ('user_id',)
 
 
 class PropietarioDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -44,6 +48,8 @@ class TipoidentificacionDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TipoidentificacionSerializer
     queryset = Tipoidentificacion.objects.all()
 
+<<<<<<< HEAD
+=======
 
 class BicicletaList(generics.ListAPIView):
     serializer_class = BicicletaSerializer
@@ -115,4 +121,5 @@ class GeolocalizacionDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Geolocalizacion.objects.all()
 
 
+>>>>>>> dece9ae1651b5cf69de9141ccc0bd4b8506c5559
 # Create your views here.

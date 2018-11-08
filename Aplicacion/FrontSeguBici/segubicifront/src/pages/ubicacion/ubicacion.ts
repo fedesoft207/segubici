@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController  } from 'ionic-ang
 import { Geolocation } from '@ionic-native/geolocation';
 import { HomePage } from '../home/home';
 import { GoogleMaps, GoogleMap, GoogleMapOptions } from '@ionic-native/google-maps';
+import { RegistrarbiciPage } from '../registrarbici/registrarbici';
 
 /**
  * Generated class for the UbicacionPage page.
@@ -24,7 +25,13 @@ export class UbicacionPage {
   }
 
   ionViewDidLoad() {
+<<<<<<< HEAD
     this.obtenerPosicion();
+=======
+    console.log('ionViewDidLoad UbicacionPage');
+
+
+>>>>>>> 1d43ded9d08fea964cac26777806e7a39bdd2925
   }
 
   obtenerPosicion() {
@@ -36,6 +43,7 @@ export class UbicacionPage {
   }
 
   loadMap(coordenadas) {
+<<<<<<< HEAD
 
     var citymap = {
       chapineropunto1: {
@@ -56,12 +64,15 @@ export class UbicacionPage {
       }
     };
 
+=======
+>>>>>>> 1d43ded9d08fea964cac26777806e7a39bdd2925
     let mapOptions: GoogleMapOptions = {
       camera: {
         target: {
           lat: coordenadas.coords.latitude,
           lng: coordenadas.coords.longitude
         },
+<<<<<<< HEAD
         zoom: 14,
         tilt: 30
       }
@@ -133,6 +144,22 @@ export class UbicacionPage {
       position: 'middle'
     });
     toast.present();
+=======
+        zoom: 18,
+        tilt: 30
+      }
+    };
+    this.map = GoogleMaps.create('map_canvas', mapOptions);
+    this.map.addMarkerSync({
+      title: 'Ionic',
+      icon: 'blue',
+      animation: 'DROP',
+      position: {
+        lat: coordenadas.coords.latitude,
+        lng: coordenadas.coords.longitude
+      }
+    });
+>>>>>>> 1d43ded9d08fea964cac26777806e7a39bdd2925
   }
 
 
@@ -142,6 +169,12 @@ export class UbicacionPage {
     //api/logout
     this.navCtrl.setRoot(HomePage)
     localStorage.clear()
+  }
+
+  registrarBici(){
+
+    //this.navCtrl.push(LoginPage) es un metodo para configurar el boton
+    this.navCtrl.push(RegistrarbiciPage)
   }
 
 }

@@ -1,11 +1,28 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class Tipoidentificacion(models.Model):
+    descripciontipoidentificacion = models.TextField()
+    siglatipoidentificacion = models.CharField(max_length=3)
+    def __str__(self):
+        return self.siglatipoidentificacion
+
+class Propietario (models.Model):
+    numeroidentificacion = models.IntegerField()
+    tipoidentificacion = models.ForeignKey(Tipoidentificacion, on_delete=models.CASCADE)
+    nombrepropietario = models.CharField(max_length=30)
+    apellidopropietario = models.CharField(max_length=30)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Bicicleta(models.Model):
     numerobicicleta = models.CharField(max_length=10)
     color = models.CharField(max_length=30)
     rin = models.CharField(max_length=30)
+<<<<<<< HEAD
+    propietario = models.ForeignKey(Propietario, on_delete=models.CASCADE, null=True, blank=True)
+=======
+    propietario = models.ForeignKey(Propietario, on_delete=models.CASCADE)
+>>>>>>> dece9ae1651b5cf69de9141ccc0bd4b8506c5559
 
 
 class Imagen (models.Model):
@@ -14,11 +31,7 @@ class Imagen (models.Model):
     bicicleta = models.ForeignKey(Bicicleta, on_delete=models.CASCADE)
 
 
-class Tipoidentificacion(models.Model):
-    descripciontipoidentificacion = models.TextField()
-    siglatipoidentificacion = models.CharField(max_length=3)
-    def __str__(self):
-        return self.siglatipoidentificacion
+
 
 
 class Tipocalle(models.Model):
@@ -36,14 +49,6 @@ class Departamento(models.Model):
 class Ciudad(models.Model):
     descripcionciudad = models.TextField()
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
-
-
-class Propietario (models.Model):
-    numeroidentificacion = models.IntegerField()
-    tipoidentificacion = models.ForeignKey(Tipoidentificacion, on_delete=models.CASCADE)
-    nombrepropietario = models.CharField(max_length=30)
-    apellidopropietario = models.CharField(max_length=30)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 
 class Localizacion(models.Model):

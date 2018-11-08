@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_auth',
     'movil',
-    'corsheaders'
+    'corsheaders',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -142,14 +143,23 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_FILTER_BACKENDS':
+        ('django_filters.rest_framework.DjangoFilterBackend',)  
 }
 
 CORS_ORIGIN_WHITELIST = (
+<<<<<<< HEAD
 'localhost:8080',
 'localhost:8000',
 'localhost:8100',
 'localhost:8200',
 
+=======
+ 'localhost:8080',
+ 'localhost:8000',
+ 'localhost:8100',
+ 'localhost:8200',
+>>>>>>> 1d43ded9d08fea964cac26777806e7a39bdd2925
 )
 CORS_ALLOW_METHODS = (
  'DELETE',
