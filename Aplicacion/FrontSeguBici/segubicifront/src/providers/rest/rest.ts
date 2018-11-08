@@ -10,10 +10,11 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
 
-  apiUrl = 'http://localhost:8000/';
+  apiUrl = ' http://localhost:8000/';
   loginService = "api/login/";
   apiregister = "propietario/" 
   apiidentificacion = "Tipoidentificacion/" 
+  apiUsuarioActual = 'api/user/';
 
 
   
@@ -53,6 +54,31 @@ export class RestProvider {
         });
       });
     }
+
+    getUsuarioActual() {
+      return new Promise(resolve => {
+      this.http.get(this.apiUrl + this.apiUsuarioActual, {headers: new HttpHeaders().set('Authorization', 'token ' + window.localStorage['token'])
+      }).subscribe((data: any) => {
+      let usuario = this.getUsuario(data.pk);
+      resolve(usuario);
+      }, err => {
+      console.log(err);
+      });
+      });
+      }
+      getUsuario(id) {
+      return new Promise(resolve => {
+      this.http.get(this.apiUrl + this.apiregister +'?user_id='+id, {
+      headers: new HttpHeaders().set('Authorization', 'token ' +
+     window.localStorage['token'])
+      }).subscribe(data => {
+      resolve(data[0]);
+      }, err => {
+      console.log(err);
+      });
+      });
+      }
+     
    
 
 
