@@ -148,10 +148,11 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = (
- 'localhost:8080',
- 'localhost:8000',
- 'localhost:8100',
- 'localhost:8200',
+'localhost:8080',
+'localhost:8000',
+'localhost:8100',
+'localhost:8200',
+
 )
 CORS_ALLOW_METHODS = (
  'DELETE',
