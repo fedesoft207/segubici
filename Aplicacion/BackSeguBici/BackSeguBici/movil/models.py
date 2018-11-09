@@ -18,11 +18,7 @@ class Bicicleta(models.Model):
     numerobicicleta = models.CharField(max_length=10)
     color = models.CharField(max_length=30)
     rin = models.CharField(max_length=30)
-<<<<<<< HEAD
-    propietario = models.ForeignKey(Propietario, on_delete=models.CASCADE, null=True, blank=True)
-=======
     propietario = models.ForeignKey(Propietario, on_delete=models.CASCADE)
->>>>>>> dece9ae1651b5cf69de9141ccc0bd4b8506c5559
 
 
 class Imagen (models.Model):

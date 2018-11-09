@@ -48,10 +48,8 @@ class TipoidentificacionDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = TipoidentificacionSerializer
     queryset = Tipoidentificacion.objects.all()
 
-<<<<<<< HEAD
-=======
 
-class BicicletaList(generics.ListAPIView):
+class BicicletaList(generics.ListCreateAPIView):
     serializer_class = BicicletaSerializer
     queryset = Bicicleta.objects.all()
 
@@ -121,5 +119,4 @@ class GeolocalizacionDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Geolocalizacion.objects.all()
 
 
->>>>>>> dece9ae1651b5cf69de9141ccc0bd4b8506c5559
 # Create your views here.

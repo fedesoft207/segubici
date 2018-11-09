@@ -45,17 +45,8 @@ export class RegistrarbiciPage {
       'rin': this.numeroRin,
       'propietario': this.usuario,
     };
-    this.restProvider.registro(data).then((result: any) => {
-
-      var data = { 'colorBici': this.colorBici, 'serialBici': this.numeroBici, 'numeroRin': this.numeroRin };
-      this.restProvider.login(data)
-        .then((data: any) => {
-          window.localStorage['token'] = data.key; // para guardar el token en el local storage -consola-aplicacion
-          this.navCtrl.push(UbicacionPage);
-        }, (err) => {
-          console.log(err);
-        });
-
+    this.restProvider.registrarmiBici(data).then((result: any) => {
+      console.log("registro de bicicleta exitoso");
     }, (err) => {
       console.log(err);
     });
