@@ -10,12 +10,13 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class RestProvider {
 
-  apiUrl = ' http://9ea51534.ngrok.io/';
+  apiUrl = ' http://eb673ca3.ngrok.io/';
   loginService = "api/login/";
   apiregister = "propietario/";
   apiidentificacion = "Tipoidentificacion/";
   apiUsuarioActual = 'api/user/';
   apimibici = 'Bicicleta/';
+  apisubirfoto = 'imagen/';
 
 
 
@@ -95,9 +96,9 @@ export class RestProvider {
 
 
 
-  /*enviarFoto(data) {
+  enviarFoto(data) {
     return new Promise((resolve, reject) => {
-    this.http.post(this.apiUrl + this.apiDenuncias, data, {
+    this.http.post(this.apiUrl + this.apisubirfoto, data, {
     headers: new HttpHeaders().set('Authorization', 'token ' +
    window.localStorage['token'])
     }).subscribe(data => {
@@ -106,6 +107,6 @@ export class RestProvider {
     reject(err);
     });
     });
-    }*/
+    }
 
 }

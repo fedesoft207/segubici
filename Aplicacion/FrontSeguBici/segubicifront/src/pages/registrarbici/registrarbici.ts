@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, } from 'ionic-angular';
 import { RestProvider } from '../../providers/rest/rest';
 import { UbicacionPage } from '../ubicacion/ubicacion';
 import { ToastController } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
 
 
@@ -24,8 +25,18 @@ export class RegistrarbiciPage {
   colorBici: String;
   numeroRin: String;
   usuario: Number;
+  imagen: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public toastCtrl: ToastController) {
+options: CameraOptions = {
+    quality: 70,
+    targetWidth: 500,
+    targetHeight: 500,
+    destinationType: this.camera.DestinationType.DATA_URL,
+    encodingType: this.camera.EncodingType.JPEG,
+    mediaType: this.camera.MediaType.PICTURE
+  }
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public restProvider: RestProvider, public toastCtrl: ToastController, private camera: Camera) {
   }
 
   ionViewDidLoad() {
@@ -47,6 +58,14 @@ export class RegistrarbiciPage {
       'propietario': this.usuario,
     };
     this.restProvider.registrarmiBici(data).then((result: any) => {
+      if(this.imagen){
+        var data = {'bicicleta':result.id, 'urlimagen': this.imagen } 
+        this.restProvider.enviarFoto(data).then((result: any) => {
+          
+        }, (err) => {
+          console.log(err);
+        });
+      }
       this.presentToast();
     }, (err) => {
       console.log(err);
@@ -66,6 +85,26 @@ export class RegistrarbiciPage {
       this.navCtrl.push(UbicacionPage);
     });
   }
+
+  tomarFoto() {
+    this.camera.getPicture(this.options).then((imageData) => {
+      // imageData is either a base64 encoded string or a file URI
+      // If it's base64 (DATA_URL):
+      this.imagen = 'data:image/jpeg;base64,' + imageData;
+    }, (err) => {
+      // Handle error
+    });
+  }
+
+   //enviarFoto() {
+
+    //this.restProvider.enviarFoto(data).then((result: any) => {
+      //console.log("Foto subida exitosamente!")
+    //}, (err) => {
+      //console.log(err);
+    //});
+  //}
+
 
   }
 

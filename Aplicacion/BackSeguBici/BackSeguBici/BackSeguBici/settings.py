@@ -133,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = 'C:\\Users\\asjimenez\\OneDrive - Asesoftware S.A.S\\BkASW\\Documentos\\Desarrollo Full\\SEGUBICI\\segubici\\Aplicacion\\BackSeguBici\\BackSeguBici\\media'
+MEDIA_ROOT = 'C:\\Users\\CECA\\Documents\\Segubici\\segubici\\Aplicacion\\BackSeguBici\\BackSeguBici\\media'
 MEDIA_URL = '/media/'
 
 REST_FRAMEWORK = {

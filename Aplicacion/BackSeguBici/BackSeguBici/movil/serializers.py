@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from movil.models import *
 from django.contrib.auth.models import User
+from drf_extra_fields.fields import Base64ImageField
 
 
 class PropietarioSerializer(serializers.ModelSerializer):
@@ -28,9 +29,10 @@ class PropietarioSerializer(serializers.ModelSerializer):
 
 
 class ImagenSerializer(serializers.ModelSerializer):
+    urlimagen = Base64ImageField()
     class Meta:
         model = Imagen
-        fields = ('urlimagen', 'id')
+        fields = ('urlimagen', 'bicicleta', 'id')
 
 
 class TipoidentificacionSerializer(serializers.ModelSerializer):
