@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController  } from 'ionic-ang
 import { Geolocation } from '@ionic-native/geolocation';
 import { HomePage } from '../home/home';
 import { GoogleMaps, GoogleMap, GoogleMapOptions } from '@ionic-native/google-maps';
+import { RegistrarbiciPage } from '../registrarbici/registrarbici';
 
 /**
  * Generated class for the UbicacionPage page.

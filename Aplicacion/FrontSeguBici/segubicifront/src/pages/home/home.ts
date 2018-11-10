@@ -4,6 +4,7 @@ import { RegistrarsePage } from '../registrarse/registrarse';
 import { RestProvider } from '../../providers/rest/rest';
 import { UbicacionPage } from '../ubicacion/ubicacion';
 import { LoadingController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -14,7 +15,7 @@ export class HomePage {
   usuario: String;
   clave: String;
 
-  constructor(public navCtrl: NavController, public restProvider: RestProvider, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public restProvider: RestProvider, public loadingCtrl: LoadingController, public toastCtrl: ToastController) {
   }
 
   registrarse() {
@@ -38,7 +39,7 @@ export class HomePage {
         window.localStorage['token'] = data.key; // para guardar el token en el local storage -consola-aplicacion
         this.navCtrl.push(UbicacionPage);
       }, (err) => {
-        console.log(err);
+        this.presentToast();
       });
   }
   
@@ -52,5 +53,15 @@ export class HomePage {
         duration: 3000
       });
       loader.present();
+    }
+
+    presentToast() {
+      const toast = this.toastCtrl.create({
+        message: 'contraseña o usuario incorrecto',
+        duration: 3000,
+        position: 'middle',
+
+      });
+      toast.present();
     }
 }
