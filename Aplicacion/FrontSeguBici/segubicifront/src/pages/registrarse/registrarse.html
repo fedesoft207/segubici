@@ -1,0 +1,51 @@
+<!--
+  Generated template for the RegistrarsePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>registrarse</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+
+    <ion-item>
+      <ion-label floating>Nombre de Usuario</ion-label>
+      <ion-input type="text" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Nombre del Propietario</ion-label>
+      <ion-input type="text" [(ngModel)]="nombredelpropietario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Apellido del propietario</ion-label>
+      <ion-input type="text" [(ngModel)]="apellidodelpropietario"></ion-input>
+    </ion-item>
+      <ion-item>
+        <ion-label floating>Tipo de Identificacion</ion-label>
+        <ion-select [(ngModel)]="tipodeidentificacion">
+          <ion-option *ngFor="let t of tipodeidentificaciones" value="{{ t.id }}">{{ t.descripciontipoidentificacion }}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+      <ion-label floating>Numero de identificacion</ion-label>
+      <ion-input type="text" [(ngModel)]="numerodeidentificacion"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Escriba una Clave</ion-label>
+      <ion-input type="password" [(ngModel)]="clave"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button block large outline (click)="iniciarRegistro()">Registrarse</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,54 @@
+<!--
+  Generated template for the RegistrarbiciPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Mi Bicicleta</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+        <ion-item>
+          <ion-label floating>Numero de serie de la bicicleta</ion-label>
+          <ion-input type="text" [(ngModel)]="numeroBici"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Color</ion-label>
+          <ion-select [(ngModel)]="colorBici">
+            <ion-option value = "Negro">Negro</ion-option>
+            <ion-option value = "Verde">Verde</ion-option>
+            <ion-option value = "Azul">Azul</ion-option>
+            <ion-option value = "Rojo">Rojo</ion-option>
+            <ion-option value = "Blanco">Blanco</ion-option>
+            <ion-option value = "Morada">Morada</ion-option>
+            <ion-option value = "Azul_Blanco">Azul con Blanco</ion-option>
+            <ion-option value = "Amarillo_Naranja">Amarillo con Naranja</ion-option>
+            <ion-option value = "Negro_Rojo">Negro con Rojo</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label floating>Numero de Rin</ion-label>
+          <ion-input type="text" [(ngModel)]="numeroRin"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button ion-button block large outline (click)="registrarmiBici()">registrar bicicleta</button>
+        </ion-item>
+        <ion-item>
+          <button ion-button block large outline (click)="tomarFoto()">Tomar
+            Foto</button>
+        </ion-item>
+        <ion-item>
+          <p><img width="80%" src="{{ imagen }}" /></p>
+        </ion-item>
+      </ion-list>
+</ion-content>
+
+

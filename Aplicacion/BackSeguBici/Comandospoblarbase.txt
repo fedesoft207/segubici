@@ -1,0 +1,6 @@
+Ejecutar para cargar las tablas parametricas de base de datos
+python manage.py loaddata movil/parameter/tipoDocumento.json
+python manage.py loaddata movil/parameter/tipoCalle.json
+python manage.py loaddata movil/parameter/cardinalidad.json
+python manage.py loaddata movil/parameter/departamento.json
+python manage.py loaddata movil/parameter/ciudad.json

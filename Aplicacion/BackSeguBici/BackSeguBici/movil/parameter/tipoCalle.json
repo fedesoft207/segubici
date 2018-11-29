@@ -1,0 +1,37 @@
+[
+    {
+        "model":"movil.Tipocalle",
+        "pk":1,
+        "fields":{
+            "descripciontipocalle":"Avenida"
+        }
+    },
+    {
+        "model":"movil.Tipocalle",
+        "pk":2,
+        "fields":{
+            "descripciontipocalle":"Calle"
+        }
+    },
+    {
+        "model":"movil.Tipocalle",
+        "pk":3,
+        "fields":{
+            "descripciontipocalle":"Carrera"
+        }
+    },
+    {
+        "model":"movil.Tipocalle",
+        "pk":4,
+        "fields":{
+            "descripciontipocalle":"Diagonal"
+        }
+    },
+    {
+        "model":"movil.Tipocalle",
+        "pk":5,
+        "fields":{
+            "descripciontipocalle":"Transversal"
+        }
+    }
+]
